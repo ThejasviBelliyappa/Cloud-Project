@@ -1,0 +1,7 @@
+pillow==10.2.0
+torch==2.7.1
+torchvision==0.22.1
+aiohttp==3.12.12
+requests==2.32.4
+numpy==2.3.0
+opencv-python==4.11.0.86

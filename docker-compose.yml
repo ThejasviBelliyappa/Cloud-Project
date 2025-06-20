@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: .
+    environment:
+      - MODE=server
+    ports:
+      - "8001:8001"
+    networks:
+      - appnet
+
+  client:
+    build:
+      context: .
+    environment:
+      - MODE=client
+    depends_on:
+      - server
+    command: ["./wait-for-it.sh", "server", "8001", "--", "python", "client.py"]
+    networks:
+      - appnet
+
+networks:
+  appnet:
